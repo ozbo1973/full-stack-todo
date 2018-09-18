@@ -1,0 +1,61 @@
+****App Setup***
+**git**
+echo "# full-stack-todo" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/ozbo1973/full-stack-todo.git
+git push -u origin master
+
+*** Full Stack**
+**back end **
+--)Create todoapi folder
+  --)create .gitignore file.
+  --)build express app.
+    --)Install save express,body-parser,axios,Mongoose.
+    --)create index.js
+      --)require express and listen for port.
+    --)create models folder.
+      --)create index.js
+        --)require mongoose.  set debug to true. connect to localhost todo-api. Promise.
+        --)export the Todo from require todos.js
+      --)create todos.js
+        --)require mongoose.  build new mongoose.Schema. with type of data, defaults and required.
+        --)export mongoose.model. "Todo", the schema varialble.
+    --)create routes folder.
+      --)index.js file.
+        --)Require in express and define router variable from express Router function.
+        --)Require in helpers file. This is where the functions for the routes will be.
+        --)Require in the database from the models index.
+        --)build main route. / get, post,
+        --)build individual routes with var /:xxx. get,put,delete.
+        --)export router.
+    --)Add Body parser to express app.
+      --)index.js file require in bodyParser.
+      --)use .json() and use .urlencoded(extended: true)
+    --)create helpers folder.
+      --)todo_api.js file.
+        --)Require in database. and export the objects
+        --)buld funcions for routes.
+          --)Get all will use .find
+          --)Post will use the .create passing req.body.
+          --)Get one(aka show) will use .findById and pass in obj _id = req.params.:var
+          --)Put one(aka update) will use findOneAndUpdate and pass obj _id req.param.:var, req.body,obj new:true.
+          --)Delete one (aka remove) will use .remove pass obj _id req.params.:var
+    --)Add Routes to Express App.
+      --)Require todoRoutes from routes folder.
+      --)app use pass in /api/todos, todoRoutes.
+  --)start mongod.
+
+**Front End ***
+--)create-react-app todos_FE and cd to new app folder.
+--)Make a component diagram.
+--)Define where state will live
+--)Package.json, define proxy for dev server, ie 5000
+  --)src folder:
+    --)App.js
+      --)Remove default info and import and add main component. <TodoList />
+    --)Create TodoList component.
+      --)Add todos in state as empty array.
+      --)On the componentWillMount need to make a call to /api/todos
+        --)set the state to todos.
