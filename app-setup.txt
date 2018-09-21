@@ -59,3 +59,21 @@ git push -u origin master
       --)Add todos in state as empty array.
       --)On the componentWillMount need to make a call to /api/todos
         --)set the state to todos.
+      --)Create the TodoItem components <TodoItem />
+        --)stateless component. that returns and li with the name.
+      --)import the TodoItem component.
+        --)Map through the todos state to display all li.
+        --)show the todos lists.
+      --)Create TodoForm class component.
+        --)return a form with an input and a button.
+        --)state of inputValue equals to '' and be able to change the input value.
+        --)add handle submit when button is clicked.
+      --)Add the addTodo function which is passed to <TodoForm> from <TodoList>
+        --)build the API call to create new todo and update state.
+      --)Add delete function and pass to each <TodoItem>
+      --)Add toggle function and pass to each <TodoItem>
+      --)import * as apiCalls from api
+    --)Create api.js
+      --)Refactor the fetch todos into this call with async
+        --) export a function getTodos that will handle the get fetch.
+        --) Do the same for the create todos toggle and delete
